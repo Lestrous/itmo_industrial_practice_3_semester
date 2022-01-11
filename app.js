@@ -11,18 +11,28 @@ export default (express, bodyParser, http, mongoose, Term) => {
         <style>
             body {
                 background-color: lightyellow;
+                width: 50%;
+                margin: 0 auto;
+                font-family: Arial, serif;
             }
             
             h1 {
-                
-            }
-            
-            .term_container {
-                
+                text-align: center;
             }
             
             .link {
-                
+                display: block;
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #f9bcdd;
+                border-radius: 8px;
+                font-size: 16px;
+                text-decoration: none;
+                color: darkblue;
+            }
+            
+            .description {
+                padding: 10px;
             }
         </style>
     `;
@@ -45,13 +55,12 @@ export default (express, bodyParser, http, mongoose, Term) => {
                 </head>
                 <body>
                     <h1>Глоссарий</h1>
-                    <div class="term_container">
+                    <div>
             `;
 
             terms.forEach(term => {
                 layout += `
                     <a class="link" href="/${term['name']}">${term['title']}</a>
-                    <br>
                 `;
             });
 
@@ -77,9 +86,9 @@ export default (express, bodyParser, http, mongoose, Term) => {
                         ${styles}
                     </head>
                     <body>
-                        <div class="term_container">
+                        <div>
                             <h1>${termInfo[0]['title']}</h1>
-                            <p>${termInfo[0]['description']}</p>
+                            <p class="description">${termInfo[0]['description']}</p>
                             <br>
                             <a class="link" href="/">На главную</a>
                         </div>
