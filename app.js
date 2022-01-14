@@ -33,6 +33,9 @@ export default (express, bodyParser, http, mongoose, Term) => {
             
             .description {
                 padding: 10px;
+                text-indent: 1.5em;
+                text-align: justify;
+                line-height: 1.5;
             }
         </style>
     `;
