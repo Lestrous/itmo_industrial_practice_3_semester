@@ -1,6 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import http from 'http';
 import mongoose from 'mongoose';
 import TermModel from './models/Term.js';
 
@@ -12,9 +10,9 @@ const DBURL = "mongodb+srv://glossary_reader:glossary_reader@cluster0.n7zyl.mong
 try {
     await mongoose.connect(DBURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    const app = appSrc(express, bodyParser, http, mongoose, Term);
+    const app = appSrc(express, mongoose, Term);
 
-    app.listen(process.env.PORT ?? 4321);
+    app.listen(process.env.PORT ?? 3000);
 } catch (e) {
     console.log(e.codeName);
 }

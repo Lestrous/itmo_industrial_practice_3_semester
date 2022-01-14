@@ -1,4 +1,4 @@
-export default (express, bodyParser, http, mongoose, Term) => {
+export default (express, mongoose, Term) => {
     const app = express();
 
     const CORS = {
@@ -42,8 +42,6 @@ export default (express, bodyParser, http, mongoose, Term) => {
 
     app
         .use((r, res, next) => { r.res.set(CORS); next(); })
-        .use(bodyParser.urlencoded({ extended: true }))
-        .use(bodyParser.json())
 
         .get('/', async (req, res) => {
             const terms = await Term.find();
